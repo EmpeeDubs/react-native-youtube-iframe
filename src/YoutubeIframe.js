@@ -29,6 +29,7 @@ const YoutubeIframe = (props, ref) => {
     height,
     width,
     videoId,
+    startSeconds,
     playList,
     play = false,
     mute = false,
@@ -141,9 +142,9 @@ const YoutubeIframe = (props, ref) => {
     lastVideoIdRef.current = videoId;
 
     webViewRef.current.injectJavaScript(
-      PLAYER_FUNCTIONS.loadVideoById(videoId, play),
+      PLAYER_FUNCTIONS.loadVideoById(videoId, play, startSeconds),
     );
-  }, [videoId, play, playerReady]);
+  }, [videoId, play, playerReady, startSeconds]);
 
   useEffect(() => {
     if (!playerReady) {

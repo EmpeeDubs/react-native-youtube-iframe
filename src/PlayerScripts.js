@@ -60,10 +60,10 @@ true;
     return `player.${func}({listType: ${listType}, list: ${list}, playlist: ${playlist}, index: ${index}}); true;`;
   },
 
-  loadVideoById: (videoId, play) => {
+  loadVideoById: (videoId, play, startSeconds) => {
     const func = play ? 'loadVideoById' : 'cueVideoById';
-
-    return `player.${func}({videoId: ${JSON.stringify(videoId)}}); true;`;
+    console.log(videoId, play, startSeconds + "videoId, play, startSeconds")
+    return `player.${func}({videoId: ${JSON.stringify(videoId)}, startSeconds: ${startSeconds}}); true;`;
   },
 };
 
