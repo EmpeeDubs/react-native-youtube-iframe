@@ -141,11 +141,15 @@ const YoutubeIframe = (props, ref) => {
     }
 
     lastVideoIdRef.current = videoId;
-
-    webViewRef.current.injectJavaScript(
-      PLAYER_FUNCTIONS.loadVideoById(videoId, play, startSecondsRef.current),
-    );
-  }, [videoId, play, playerReady, startSeconds]);
+    startSecondsRef.current = startSeconds;
+    try{
+      webViewRef.current.injectJavaScript(
+        PLAYER_FUNCTIONS.loadVideoById(videoId, play, startSeconds),
+      );
+    }catch(e){
+      console.log(e);
+    }
+  }, [videoId, play, playerReady]);
 
   useEffect(() => {
     if (!playerReady) {
