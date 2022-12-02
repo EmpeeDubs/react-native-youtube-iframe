@@ -62,7 +62,6 @@ true;
 
   loadVideoById: (videoId, play, startSeconds) => {
     const func = play ? 'loadVideoById' : 'cueVideoById';
-    console.log(videoId, play, startSeconds + "videoId, play, startSeconds")
     return `player.${func}({videoId: ${JSON.stringify(videoId)}, startSeconds: ${startSeconds}}); true;`;
   },
 };
