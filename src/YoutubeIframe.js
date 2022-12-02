@@ -55,6 +55,7 @@ const YoutubeIframe = (props, ref) => {
   const [playerReady, setPlayerReady] = useState(false);
   const lastVideoIdRef = useRef(videoId);
   const lastPlayListRef = useRef(playList);
+  const startSecondsRef = useRef(startSeconds);
   const initialPlayerParamsRef = useRef(initialPlayerParams || {});
 
   const webViewRef = useRef(null);
@@ -142,7 +143,7 @@ const YoutubeIframe = (props, ref) => {
     lastVideoIdRef.current = videoId;
 
     webViewRef.current.injectJavaScript(
-      PLAYER_FUNCTIONS.loadVideoById(videoId, play, startSeconds),
+      PLAYER_FUNCTIONS.loadVideoById(videoId, play, startSecondsRef),
     );
   }, [videoId, play, playerReady, startSeconds]);
 
