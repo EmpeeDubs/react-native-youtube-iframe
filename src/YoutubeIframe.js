@@ -115,6 +115,17 @@ const YoutubeIframe = (props, ref) => {
           PLAYER_FUNCTIONS.seekToScript(seconds, allowSeekAhead),
         );
       },
+      playVideo: () => {
+        webViewRef.current.injectJavaScript(PLAYER_FUNCTIONS.playVideoScript());
+      },
+      pauseVideo: () => {
+        webViewRef.current.injectJavaScript(
+          PLAYER_FUNCTIONS.pauseVideoScript(),
+        );
+      },
+      stopVideo: () => {
+        webViewRef.current.injectJavaScript(PLAYER_FUNCTIONS.stopVideoScript());
+      },
     }),
     [],
   );

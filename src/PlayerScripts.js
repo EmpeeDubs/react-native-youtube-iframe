@@ -37,7 +37,17 @@ true;
   setVolume: volume => {
     return `player.setVolume(${volume}); true;`;
   },
+  playVideoScript: () => {
+    return 'player.playVideo(); true;';
+  },
 
+  pauseVideoScript: () => {
+    return 'player.pauseVideo(); true;';
+  },
+
+  stopVideoScript: () => {
+    return 'player.stopVideo(); true;';
+  },
   seekToScript: (seconds, allowSeekAhead) => {
     return `player.seekTo(${seconds}, ${allowSeekAhead}); true;`;
   },
